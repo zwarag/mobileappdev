@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="movie"
+            type="com.android.example.ue2.Movie" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black">
+
+        <ImageView
+            android:id="@+id/movie_poster"
+            android:layout_width="147dp"
+            android:layout_height="114dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/poster_contentDescription"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/queens_gambit_poster" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/movie_poster">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                tools:context=".MainActivity">
+
+                <TextView
+                    android:id="@+id/text_movie_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{movie.title}"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Movie Title" />
+
+                <TextView
+                    android:id="@+id/label_creators"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/label_creator"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toStartOf="@+id/text_creators"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_gerne" />
+
+                <TextView
+                    android:id="@+id/label_actors"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/label_actors"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/label_creators" />
+
+                <TextView
+                    android:id="@+id/text_gerne"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@{movie.genres}"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/gold"
+                    app:layout_constraintEnd_toStartOf="@+id/ratingBar"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_movie_title"
+                    tools:text="Gernes" />
+
+                <RatingBar
+                    android:id="@+id/ratingBar"
+                    style="@android:style/Widget.DeviceDefault.Light.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:numStars="5"
+                    android:progressTint="@color/yellow"
+                    android:rating="@{movie.rating}"
+                    android:stepSize=".5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/text_gerne"
+                    app:layout_constraintTop_toBottomOf="@+id/text_movie_title" />
+
+                <TextView
+                    android:id="@+id/text_creators"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@{movie.creators}"
+                    android:textColor="@color/gold"
+                    app:layout_constraintStart_toEndOf="@+id/label_creators"
+                    app:layout_constraintTop_toBottomOf="@+id/text_gerne"
+                    tools:text="Creators" />
+
+                <TextView
+                    android:id="@+id/text_actors"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@{movie.actors}"
+                    android:textColor="@color/gold"
+                    app:layout_constraintStart_toEndOf="@+id/label_actors"
+                    app:layout_constraintTop_toBottomOf="@+id/text_creators"
+                    tools:text="Actors" />
+
+                <TextView
+                    android:id="@+id/label_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/text_description"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/label_actors" />
+
+                <TextView
+                    android:id="@+id/text_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@{movie.description}"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/label_description"
+                    tools:text="Lorem Ipsum" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:contentDescription="@string/fab_contentDescription"
+            android:focusable="true"
+            app:backgroundTint="@color/gold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@android:drawable/ic_input_add" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

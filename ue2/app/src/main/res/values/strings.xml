@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MovieApp</string>
+    <string name="movie_name">The Queen\'s Gambit</string>
+    <string name="label_creator">Creators:</string>
+    <string name="label_actors">Actors:</string>
+    <string name="text_description">Story</string>
+    <string name="poster_contentDescription">Content Description</string>
+    <string name="fab_contentDescription">add</string>
+</resources>
